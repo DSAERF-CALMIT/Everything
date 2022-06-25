@@ -163,7 +163,7 @@ I &= \int r^2 dM = \int_0^{m} r^2 dM \\
 I = I_{cm} + md^2.
 \end{equation}
 $I_{cm}$ is the moment of inertia when rotating about the axis that passes through the center of mass. $d$ is the distance between an arbitrary rotational axis and the axis that passes through the center of mass of the object.
-\begin{prf}{prf:proof2}
+\begin{prf}{prf:proof3}
 \addtolength{\jot}{0.5em}
 For the sake of simplicity, let's imagine the rigid body rotating about the $z$-axis, which passes through the center of mass of the body. You could use tensor to do a more generalized proof (I will do a tensor version of this whole topic if I have time).
 \begin{align*}
@@ -181,6 +181,53 @@ I &= \int \left((x-d_1)^2+(y-d_2)^2\right) dM\\
 \end{align*}
 \vspace{-3em}
 \end{prf}
+
+\newpage
+%%%%%%%%%%%%%%%%
+\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{Circular Thin Loop $:$ Orthogonal Center} (Mass: \textbf{m}; Radius: \textbf{R})
+}
+\begin{equation}
+I_z = mR^2.
+\end{equation}
+\vspace{-2.3em}
+\begin{prf}{prf:proof2}
+\vspace{-2em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+I_z &= \int r^2 dM = \int R^2 dM\\
+&= R^2 \int dM = R^2 \cdot m\\
+\Aboxed{&\hspace{3pt}= mR^2}\\
+\end{align*}
+\vspace{-3.5em}
+\end{prf}
+
+\vspace{1.5em}
+%%%%%%%%%%%%%%%%
+\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{Circular Thin Loop $:$ Diameter} (Mass: \textbf{m}; Radius: \textbf{R})
+}
+\begin{equation}
+I_x = I_y = \frac{1}{2}mR^2.
+\end{equation}
+\vspace{-2.3em}
+\begin{prf}{prf:proof2}
+\vspace{-2em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+I_x  = I_y &= \int r^2 dM\\
+&= \int r^2 (\lambda dL) = \int_0^{2\pi} r^2 \left( \frac{m}{2\pi R} R d\theta\right) \\
+&= \int_0^{2\pi} (R \text{cos}\theta)^2 \left( \frac{m}{2\pi} \right) d\theta\\
+&= R^2\frac{m}{2\pi} \int_0^{2\pi}  \text{cos}^2\theta d\theta\\
+&= R^2\frac{m}{2\pi} \int_0^{2\pi}  \frac{1+\text{cos}2\theta}{2} d\theta\\
+&= R^2\frac{m}{2\pi} \left( \left[ \frac{1}{2} \theta + \frac{1}{4}\text{sin}2\theta \large\right]_0^{2\pi} \right)\\
+&= R^2\frac{m}{2\pi} \left( \pi - 0 + 0 - 0 \right)\\
+\Aboxed{&\hspace{3pt}= \frac{1}{2}mR^2.}\\
+\end{align*}
+\vspace{-3.5em}
+\end{prf}
+
+
 
 
 \end{document}
