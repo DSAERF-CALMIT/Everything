@@ -108,9 +108,9 @@ is also useful in some cases.
 %	\end{pmatrix}$$
 
 \newpage
-%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%1
 {\fontfamily{lmss}\selectfont
-	\noindent \textbf{Infinite Thin Rod $:$ Center }(Mass: \textbf{m}; Lenght: \textbf{l})
+	\noindent \textbf{\textcolor{red}{Eq.1:} Infinite Thin Rod $:$ Center }(Mass: \textbf{m}; Lenght: \textbf{l})
 }
 \begin{equation}
 I = \frac{1}{12}ml^2.
@@ -130,9 +130,9 @@ I &= \int r^2 dM = \int_0^{m} r^2 dM \\
 \end{prf}
 
 \vspace{2em}
-%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%2
 \setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
-	\noindent \textbf{Infinite Thin Rod $:$ One End }(Mass: \textbf{m}; Lenght: \textbf{l})
+	\noindent \textbf{\textcolor{red}{Eq.2:} Infinite Thin Rod $:$ One End }(Mass: \textbf{m}; Lenght: \textbf{l})
 }
 \begin{equation}
 I = \frac{1}{3}ml^2.
@@ -152,9 +152,9 @@ I &= \int r^2 dM = \int_0^{m} r^2 dM \\
 \end{prf}
 
 
-%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%3
 \setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
-	\noindent \textbf{Parallel Axis Theorem}
+	\noindent \textbf{\textcolor{red}{Theorem.1:} Parallel Axis Theorem}
 }
 
 \vspace{1.5em}
@@ -183,15 +183,15 @@ I &= \int \left((x-d_1)^2+(y-d_2)^2\right) dM\\
 \end{prf}
 
 \newpage
-%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%4
 \setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
-	\noindent \textbf{Circular Thin Loop $:$ Orthogonal Center} (Mass: \textbf{m}; Radius: \textbf{R})
+	\noindent \textbf{\textcolor{red}{Eq.3:} Circular Thin Loop $:$ Orthogonal Center} (Mass: \textbf{m}; Radius: \textbf{R})
 }
 \begin{equation}
-I_z = mR^2.
+I_z = mR^2. \label{eq10}
 \end{equation}
 \vspace{-2.3em}
-\begin{prf}{prf:proof2}
+\begin{prf}{prf:proof4}
 \vspace{-2em}
 \addtolength{\jot}{0.5em}
 \begin{align*}
@@ -203,15 +203,15 @@ I_z &= \int r^2 dM = \int R^2 dM\\
 \end{prf}
 
 \vspace{1.5em}
-%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%5
 \setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
-	\noindent \textbf{Circular Thin Loop $:$ Diameter} (Mass: \textbf{m}; Radius: \textbf{R})
+	\noindent \textbf{\textcolor{red}{Eq.4:} Circular Thin Loop $:$ Diameter} (Mass: \textbf{m}; Radius: \textbf{R})
 }
 \begin{equation}
-I_x = I_y = \frac{1}{2}mR^2.
+I_x = I_y = \frac{1}{2}mR^2. \label{eq11}
 \end{equation}
 \vspace{-2.3em}
-\begin{prf}{prf:proof2}
+\begin{prf}{prf:proof5}
 \vspace{-2em}
 \addtolength{\jot}{0.5em}
 \begin{align*}
@@ -228,6 +228,104 @@ I_x  = I_y &= \int r^2 dM\\
 \end{prf}
 
 
+
+%%%%%%%%%%%%%%%%6
+\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Theorem.2:} Perpendicular Axis Theorem}
+}
+
+\vspace{1.5em}
+\noindent For a flat, thin, and uniform object, the moment of inertia, $I_z$, about a rotating axis, say $z$-axis, that is orthogonal to the center of mass, is equal to the sum of the moments of inertia of the object about two other rotating axes orthogonal to each other, $I_x, I_y$: 
+\begin{equation}
+I_z = I_x+I_y.
+\end{equation}
+$I_z$ is the moment of inertia when rotating about the $z$-axis, $I_x, I_y$ are the moments of inertia when rotating about the $x$-axis and $y$-axis respectively. Note that the object is flat among the $xy$ surface. We have:
+\begin{equation}
+I_z = 2I_x = 2I_y;~~ I_x = I_y
+\end{equation}
+when the rigid body has rotational symmetry in $xy$ surface.
+\begin{prf}{prf:proof6}
+\vspace{-2em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+I_z &= \int r^2 dM\\
+&= \int (x^2+y^2) dM\\
+&= \int x^2 dM + \int y^2 dM\\
+&= I_y + I_x.\\
+\text{Note that:} &\int x^2 dM = I_y,\\
+\text{and} &\int y^2 dM = I_x.
+\end{align*}
+Since the circular loop is a flat, thin, and uniform rigid body, we have:
+\begin{align*}
+\eqref{eq10}: I_z &= mR^2\\
+\eqref{eq11}: I_x &= I_y = \frac{1}{2} mR^2
+\end{align*}
+which satisfy $$I_z = I_x+I_y.$$
+\vspace{-1em}
+\end{prf}
+
+
+%%%%%%%%%%%%%%%%7
+\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.5:} Circular Thin Disk $:$ Orthogonal Center} (Mass: \textbf{m}; Radius: \textbf{R})
+}
+\begin{equation}
+I_z = \frac{1}{2} mR^2.
+\end{equation}
+\vspace{-2.3em}
+\begin{prf}{prf:proof7}
+\vspace{-2em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+I_z &= \int r^2 dM = \iint r^2 (\sigma dA) \\
+&= \int_0^R\int_{-\pi}^{\pi} r^2 \sigma r d\theta dr = \int_0^R \sigma r^3 \left(\int_{-\pi}^{\pi} d\theta\right) dr\\
+&= 2\pi\sigma \int_0^R r^3 dr\\
+&= 2\pi\sigma \left[ \frac{1}{4}r^4 \right]_0^R= 2\pi \frac{m}{\pi R^2} \left(\frac{1}{4}R^4 - 0 \right)\\
+\Aboxed{&\hspace{3pt}= \frac{1}{2}mR^2}\\
+\end{align*}
+\vspace{-3.5em}
+\end{prf}
+
+\vspace{1.5em}
+%%%%%%%%%%%%%%%%8
+\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.6:} Cylinder $:$ Orthogonal Center} (Mass: \textbf{m}; Radius: \textbf{R}; Hight: \textbf{H})
+}
+\begin{equation}
+I_z = \frac{1}{2} mR^2.
+\end{equation}
+\vspace{-2.3em}
+\begin{prf}{prf:proof8}
+\vspace{-2em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+I_z &= \int r^2 dM = \int r^2 (H dM_A)\\
+&= \iint r^2 (H \sigma dA) = H \sigma \int_0^R r^3 \cdot 2\pi \cdot dr\\
+&= H \frac{m}{\pi R^2 H} 2\pi \int_0^R r^2 r dr\\
+&= \frac{2m}{R^2} \left( \frac{1}{4}R^4 \right)\\
+\Aboxed{&\hspace{3pt}= \frac{1}{2}mR^2}\\
+\end{align*}
+\vspace{-3.5em}
+\end{prf}
+
+
+%%%%%%%%%%%%%%%%9
+\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.7:} Circular Thin Disk $:$ Diameter} (Mass: \textbf{m}; Radius: \textbf{R})
+}
+\begin{equation}
+I_x = I_y = \frac{1}{4} mR^2.
+\end{equation}
+\vspace{-2.3em}
+\begin{prf}{prf:proof9}
+\vspace{-2em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+I_x=I_y &= \\
+\Aboxed{&\hspace{3pt}= \frac{1}{4}mR^2}\\
+\end{align*}
+\vspace{-3.5em}
+\end{prf}
 
 
 \end{document}
