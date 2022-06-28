@@ -1,22 +1,23 @@
 \documentclass[12pt]{scrartcl}
 \title{Moment of Inertia}
 \nonstopmode
-\usepackage{graphicx}		% Required for including pictures
+\usepackage{graphicx}			% Required for including pictures
 \usepackage[figurename=Figure]{caption}
-\usepackage{float}    			% For tables and other floats
+\usepackage{float}    				% For tables and other floats
 \usepackage{amsmath}  		% For math
-\usepackage{bbm}  			% For mathBBM
+\usepackage{bbm}  				% For mathBBM
 \usepackage{amssymb}  		% For more math
-\usepackage{fullpage} 		% Set margins and place page numbers at bottom center
-\usepackage{paralist} 		% paragraph spacing
-\usepackage{listings} 		% For source code
+\usepackage{fullpage} 			% Set margins and place page numbers at bottom center
+\usepackage{paralist} 			% paragraph spacing
+\usepackage{listings} 			% For source code
 \usepackage{enumitem} 		% useful for itemization
-\usepackage{siunitx}  		% standardization of si units
-\usepackage{tikz,bm} 		% Useful for drawing plots
+\usepackage{siunitx}  			% standardization of si units
+\usepackage{tikz,bm} 			% Useful for drawing plots
 \usepackage{fancyhdr}
 \usepackage{setspace}
 \usepackage{mathtools}
 \usepackage{hyperref}
+\usepackage{bm}
 
 \usepackage{amsthm}
 \usepackage[framemethod=TikZ]{mdframed}
@@ -369,7 +370,106 @@ I &= \int \frac{1}{4} R^2 \cdot dM +\int x^2 \cdot dM\\
 \vspace{-3.5em}
 \end{prf}
 
+\newpage
+%%%%%%%%%%%%%%%%11
+\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.9:} Hollow Cylinder (Thick Tube) $:$ Orthogonal Center}
+	\begin{center}
+~~~~~~~~~~~~~~~~~~~~~~~~(Mass: \textbf{m};  Inner Radius: \boldsymbol{$\textbf{R}_1$}; Outer Radius: \boldsymbol{$\textbf{R}_2$}; Height: \textbf{H})
+	\end{center}
+}
+\vspace{-1em}
+\begin{equation}
+I_z=\frac{1}{2}m(R_1^2+R_2^2)
+\end{equation}
+\vspace{-1.6em}
+\begin{prf}{prf:proof11}
+\vspace{-2em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+I_z &= \int r^2 dM\\
+\end{align*}
+\vspace{-3.5em}
+\end{prf}
 
+\newpage
+%%%%%%%%%%%%%%%%12
+\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.10:} Hollow Cylinder (Thick Tube) $:$ Transverse Axis \& Center}
+	\begin{center}
+~~~~~~~~~~~~~~~~~~~~~~~~(Mass: \textbf{m};  Inner Radius: \boldsymbol{$\textbf{R}_1$}; Outer Radius: \boldsymbol{$\textbf{R}_2$}; Height: \textbf{H})
+	\end{center}
+}
+\vspace{-1em}
+\begin{equation}
+I_z=\frac{1}{4}
+\end{equation}
+\vspace{-1.6em}
+\begin{prf}{prf:proof12}
+\vspace{-2em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+I_x=I_y &= \int r^2 dM\\
+\end{align*}
+\vspace{-3.5em}
+\end{prf}
+
+
+\newpage
+%%%%%%%%%%%%%%%%13
+\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.11:} Spherical Thin Shell} (Mass: \textbf{m};  Radius: \textbf{R})
+}
+\begin{equation}
+I =\frac{2}{3}mR^2.
+\end{equation}
+\vspace{-2.3em}
+\begin{prf}{prf:proof13}
+\vspace{-2em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+I &= \int r^2 dM\\
+\end{align*}
+\vspace{-3.5em}
+\end{prf}
+
+
+\newpage
+%%%%%%%%%%%%%%%%14
+\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.12:} Solid Sphere} (Mass: \textbf{m};  Radius: \textbf{R})
+}
+\begin{equation}
+I =\frac{2}{5}mR^2.
+\end{equation}
+\vspace{-2.3em}
+\begin{prf}{prf:proof14}
+\vspace{-2em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+I &= \int r^2 dM\\
+\end{align*}
+\vspace{-3.5em}
+\end{prf}
+
+
+\newpage
+%%%%%%%%%%%%%%%%15
+\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.13:} Spherical Thick Shell} (Mass: \textbf{m}; Inner Radius: \boldsymbol{$\textbf{R}_1$}; Outer Radius: \boldsymbol{$\textbf{R}_2$})
+}
+\begin{equation}
+I =\frac{2}{5}
+\end{equation}
+\vspace{-2.3em}
+\begin{prf}{prf:proof15}
+\vspace{-2em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+I &= \int r^2 dM\\
+\end{align*}
+\vspace{-3.5em}
+\end{prf}
 \end{document}
 
 
