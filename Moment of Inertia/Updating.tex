@@ -19,6 +19,9 @@
 \usepackage{hyperref}
 \usepackage{bm}
 
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=1.2pt] (char) {#1};}}
+
 \usepackage{amsthm}
 \usepackage[framemethod=TikZ]{mdframed}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -107,11 +110,68 @@ are also useful in some cases.
 %	I_{yx} & I_{yy} & I_{yz}\\
 %	I_{zx} & I_{zy} & I_{zz}
 %	\end{pmatrix}$$
+\newpage
+
+\hyperlink{N1}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.1:} Infinite Thin Rod $:$ Center }(Mass: \textbf{m}; Lenght: \textbf{l})
+}\\
+
+\hyperlink{N2}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.2:} Infinite Thin Rod $:$ One End }(Mass: \textbf{m}; Lenght: \textbf{l})
+}\\
+
+\hyperlink{N3}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Theorem.1:} Parallel Axis Theorem}
+}\\
+
+\hyperlink{N4}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.3:} Circular Thin Loop $:$ Orthogonal Center} (Mass: \textbf{m}; Radius: \textbf{R})
+}\\
+
+\hyperlink{N5}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.4:} Circular Thin Loop $:$ Diameter} (Mass: \textbf{m}; Radius: \textbf{R})
+}\\
+
+\hyperlink{N6}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Theorem.2:} Perpendicular Axis Theorem}
+}\\
+
+\hyperlink{N7}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.5:} Circular Thin Disk $:$ Orthogonal Center} (Mass: \textbf{m}; Radius: \textbf{R})
+}\\
+
+\hyperlink{N8}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.6:} Solid Cylinder $:$ Orthogonal Center} (Mass: \textbf{m}; Radius: \textbf{R}; Hight: \textbf{H})
+}\\
+
+\hyperlink{N9}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.7:} Circular Thin Disk $:$ Diameter} (Mass: \textbf{m}; Radius: \textbf{R})
+}\\
+
+\hyperlink{N10}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.8:} Solid Cylinder $:$ Transverse Axis \& Center} (Mass: \textbf{m}; Radius: \textbf{R}; Height: \textbf{H})
+}\\
+
+\hyperlink{N11}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.9:} Hollow Cylinder (Thick Tube) $:$ Orthogonal Center}
+}\\
+
+\hyperlink{N12}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.10:} Hollow Cylinder (Thick Tube) $:$ Transverse Axis \& Center}
+}\\
+
+\hyperlink{N13}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.11:} Thin Spherical Shell} (Mass: \textbf{m};  Radius: \textbf{R})
+}\\
+
+\hyperlink{N14}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.12:} Solid Sphere} (Mass: \textbf{m};  Radius: \textbf{R})
+}
 
 \newpage
 %%%%%%%%%%%%%%%%1
-{\fontfamily{lmss}\selectfont
-	\noindent \textbf{\textcolor{red}{Eq.1:} Infinite Thin Rod $:$ Center }(Mass: \textbf{m}; Lenght: \textbf{l})
+\hypertarget{N1}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.1:} Infinite Thin Rod $:$ Center }(Mass: \textbf{m}; Lenght: \textbf{l}) \label{N1}
 }
 \begin{equation}
 I = \frac{1}{12}ml^2.
@@ -132,7 +192,7 @@ I &= \int r^2 dM = \int_0^{m} r^2 dM \\
 
 \vspace{2em}
 %%%%%%%%%%%%%%%%2
-\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
+\setlength\leftskip{0pt}\hypertarget{N2}{\fontfamily{lmss}\selectfont
 	\noindent \textbf{\textcolor{red}{Eq.2:} Infinite Thin Rod $:$ One End }(Mass: \textbf{m}; Lenght: \textbf{l})
 }
 \begin{equation}
@@ -154,7 +214,7 @@ I &= \int r^2 dM = \int_0^{m} r^2 dM \\
 
 
 %%%%%%%%%%%%%%%%3
-\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
+\setlength\leftskip{0pt}\hypertarget{N3}{\fontfamily{lmss}\selectfont
 	\noindent \textbf{\textcolor{red}{Theorem.1:} Parallel Axis Theorem}
 }
 
@@ -185,7 +245,7 @@ I &= \int \left((x-d_1)^2+(y-d_2)^2\right) dM\\
 
 \newpage
 %%%%%%%%%%%%%%%%4
-\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
+\setlength\leftskip{0pt}\hypertarget{N4}{\fontfamily{lmss}\selectfont
 	\noindent \textbf{\textcolor{red}{Eq.3:} Circular Thin Loop $:$ Orthogonal Center} (Mass: \textbf{m}; Radius: \textbf{R})
 }
 \begin{equation}
@@ -205,7 +265,7 @@ I_z &= \int r^2 dM = \int R^2 dM\\
 
 \vspace{1.5em}
 %%%%%%%%%%%%%%%%5
-\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
+\setlength\leftskip{0pt}\hypertarget{N5}{\fontfamily{lmss}\selectfont
 	\noindent \textbf{\textcolor{red}{Eq.4:} Circular Thin Loop $:$ Diameter} (Mass: \textbf{m}; Radius: \textbf{R})
 }
 \begin{equation}
@@ -231,7 +291,7 @@ I_x  = I_y &= \int r^2 dM\\
 
 
 %%%%%%%%%%%%%%%%6
-\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
+\setlength\leftskip{0pt}\hypertarget{N6}{\fontfamily{lmss}\selectfont
 	\noindent \textbf{\textcolor{red}{Theorem.2:} Perpendicular Axis Theorem}
 }
 
@@ -267,7 +327,7 @@ which satisfy $$I_z = I_x+I_y.$$
 
 
 %%%%%%%%%%%%%%%%7
-\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
+\setlength\leftskip{0pt}\hypertarget{N7}{\fontfamily{lmss}\selectfont
 	\noindent \textbf{\textcolor{red}{Eq.5:} Circular Thin Disk $:$ Orthogonal Center} (Mass: \textbf{m}; Radius: \textbf{R})
 }
 \begin{equation}
@@ -289,7 +349,7 @@ I_z &= \int r^2 dM = \iint r^2 (\sigma dA) \\
 
 \vspace{1.5em}
 %%%%%%%%%%%%%%%%8
-\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
+\setlength\leftskip{0pt}\hypertarget{N8}{\fontfamily{lmss}\selectfont
 	\noindent \textbf{\textcolor{red}{Eq.6:} Solid Cylinder $:$ Orthogonal Center} (Mass: \textbf{m}; Radius: \textbf{R}; Hight: \textbf{H})
 }
 \begin{equation}
@@ -312,7 +372,7 @@ I_z &= \int r^2 dM = \iiint r^2 (\rho dV) \\
 
 
 %%%%%%%%%%%%%%%%9
-\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
+\setlength\leftskip{0pt}\hypertarget{N9}{\fontfamily{lmss}\selectfont
 	\noindent \textbf{\textcolor{red}{Eq.7:} Circular Thin Disk $:$ Diameter} (Mass: \textbf{m}; Radius: \textbf{R})
 }
 \begin{equation}
@@ -341,7 +401,7 @@ I_x=I_y &=\int_0^R \int_{0}^{2\pi}(r\text{cos}\theta)^2 (\sigma r d\theta dr)\\
 
 \newpage
 %%%%%%%%%%%%%%%%10
-\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
+\setlength\leftskip{0pt}\hypertarget{N10}{\fontfamily{lmss}\selectfont
 	\noindent \textbf{\textcolor{red}{Eq.8:} Solid Cylinder $:$ Transverse Axis \& Center} (Mass: \textbf{m}; Radius: \textbf{R}; Height: \textbf{H})
 }
 \begin{equation}
@@ -373,13 +433,12 @@ I &= \int \frac{1}{4} R^2 \cdot dM +\int x^2 \cdot dM\\
 
 \newpage
 %%%%%%%%%%%%%%%%11
-\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
+\setlength\leftskip{0pt}\hypertarget{N11}{\fontfamily{lmss}\selectfont
 	\noindent \textbf{\textcolor{red}{Eq.9:} Hollow Cylinder (Thick Tube) $:$ Orthogonal Center}
 	\begin{center}
 ~~~~~~~~~~~~~~~~~~~~~~~~(Mass: \textbf{m};  Inner Radius: \boldsymbol{$\textbf{R}_1$}; Outer Radius: \boldsymbol{$\textbf{R}_2$}; Height: \textbf{H})
 	\end{center}
 }
-\vspace{-1em} 
 \begin{equation}
 I_z=\frac{1}{2}m(R_1^2+R_2^2)
 \end{equation}
@@ -406,13 +465,12 @@ I_z &= \int r^2 dM\\
 
 \newpage
 %%%%%%%%%%%%%%%%12
-\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
+\setlength\leftskip{0pt}\hypertarget{N12}{\fontfamily{lmss}\selectfont
 	\noindent \textbf{\textcolor{red}{Eq.10:} Hollow Cylinder (Thick Tube) $:$ Transverse Axis \& Center}
 	\begin{center}
 ~~~~~~~~~~~~~~~~~~~~~~~~(Mass: \textbf{m};  Inner Radius: \boldsymbol{$\textbf{R}_1$}; Outer Radius: \boldsymbol{$\textbf{R}_2$}; Height: \textbf{H})
 	\end{center}
 }
-\vspace{-1em}
 \begin{equation}
 I_x=I_y = \frac{1}{4}m\left(R_1^2+R_2^2\right)+\frac{1}{12}mH^2.
 \end{equation}
@@ -442,7 +500,7 @@ I &= \int \frac{1}{4}(R_1^2+ R_2^2) \cdot dM + \int x^2 \cdot dM\\
 
 \newpage
 %%%%%%%%%%%%%%%%13
-\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
+\setlength\leftskip{0pt}\hypertarget{N13}{\fontfamily{lmss}\selectfont
 	\noindent \textbf{\textcolor{red}{Eq.11:} Thin Spherical Shell} (Mass: \textbf{m};  Radius: \textbf{R})
 }
 \begin{equation}
@@ -471,10 +529,9 @@ I &= \int r^2 dM\\
 \vspace{-3.5em}
 \end{prf}
 
-
 \newpage
 %%%%%%%%%%%%%%%%14
-\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
+\setlength\leftskip{0pt}\hypertarget{N14}{\fontfamily{lmss}\selectfont
 	\noindent \textbf{\textcolor{red}{Eq.12:} Solid Sphere} (Mass: \textbf{m};  Radius: \textbf{R})
 }
 \begin{equation}
@@ -482,35 +539,68 @@ I =\frac{2}{5}mR^2.
 \end{equation}
 \vspace{-2.3em}
 \begin{prf}{prf:proof14}
-\vspace{-2em}
+\text{(Spherical Shell)}
+\vspace{-2.2em}
 \addtolength{\jot}{0.5em}
 \begin{align*}
-I &= \int r^2 dM\\
-&= \iiint r^2 \rho dV\\
-&= \\
+I &= \int dI = \int \left(\frac{2}{3}r^2 dM\right) \\
+&= \int \frac{2}{3}r^2 \rho 4\pi r^2 dr = \int_0^R \frac{2}{3} 4 \pi \rho r^4 dr\\ 
+&= \frac{2}{3} 4 \pi \rho \int_0^R r^4 dr\\
+\circled{1} &= \frac{8\pi}{3}\frac{m}{\frac{4}{3}\pi R^3} \left[ \frac{1}{5}r^5 \right]_0^R = \frac{2m}{R^3}\frac{1}{5}R^5\\
+\Aboxed{&\hspace{3pt}=\frac{2}{5}mR^2.}\\
+\circled{2} &= \frac{2}{3} 4 \pi \rho \left[ \frac{1}{5}r^5 \right]_0^R = 2 \left(\rho \frac{4}{3} \pi R^3\right) \frac{1}{5}R^2\\
+\Aboxed{&\hspace{3pt}=\frac{2}{5}mR^2.}\\
 \end{align*}
 \vspace{-3.5em}
 \end{prf}
 
-
-\newpage
-%%%%%%%%%%%%%%%%15
-\setlength\leftskip{0pt}{\fontfamily{lmss}\selectfont
-	\noindent \textbf{\textcolor{red}{Eq.13:} Spherical Thick Shell} (Mass: \textbf{m}; Inner Radius: \boldsymbol{$\textbf{R}_1$}; Outer Radius: \boldsymbol{$\textbf{R}_2$})
-}
-\begin{equation}
-I =\frac{2}{5}
-\end{equation}
-\vspace{-2.3em}
 \begin{prf}{prf:proof15}
-\vspace{-2em}
+\text{(Thin Disk)}
+\vspace{-2.2em}
 \addtolength{\jot}{0.5em}
 \begin{align*}
-I &= \int r^2 dM\\
+~~~~~~~~~~I &= \int dI = \int \left(\frac{1}{2}r^2 dM\right) \\
+&= \int \frac{1}{2}r^2 \rho \pi r^2 dh = \int \frac{1}{2} \pi \rho r^4 dh\\
+&= \int_{-R}^R \frac{1}{2} \pi \rho (R^2-h^2)^2 dh\\
+&= \frac{1}{2} \pi \rho \int_{-R}^R (R^4-R^2h^2+h^4) dh = \frac{1}{2} \pi \rho \left(\frac{16}{15}R^5\right)\\
+\Aboxed{&\hspace{3pt}=\frac{2}{5}mR^2.}\\
 \end{align*}
 \vspace{-3.5em}
 \end{prf}
 
+\begin{prf}{prf:proof16}
+\text{(Parallel Axis Theorem)}
+\vspace{-0.8em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+~~~~~~~~~~~dI &= dI_{cm} + x^2 dM = \frac{1}{4} r^2 dM + x^2 dM\\
+dM &= \rho dV = \rho \pi r^2 dx = \rho \pi (R^2-x^2) dx\\
+I &= \int dI = \int \left(\frac{1}{4} r^2 + x^2 \right)dM\\
+&= \int_{-R}^R \left(\frac{1}{4} (R^2-x^2) + x^2 \right) \rho \pi (R^2-x^2) dx\\
+&= \rho \pi \int_{-R}^R \left(\frac{1}{4} R^4 + \frac{1}{2}  R^2x^2-\frac{3}{4} x^4 \right) dx = \frac{8}{15}\rho \pi R^5\\
+\Aboxed{&\hspace{3pt}=\frac{2}{5}mR^2.}\\
+\end{align*}
+\vspace{-3.5em}
+\end{prf}
+
+\begin{prf}{prf:proof17}
+\text{(Interesting Method)}
+\vspace{-0.8em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+~~~~~~~~I &\coloneqq I_x = I_y = I_z \\
+&= \frac{1}{3}(I_x+I_y+I_z)\\
+\begin{split}
+~\hspace{-4pt}=\frac{1}{3} \iiint \rho (y^2+z^2) dV + \frac{1}{3}\iiint \rho (x^2+z^2) dV& \\
++ \frac{1}{3}\iiint \rho (x^2+y^2) dV& \\
+\end{split}
+\\&= \frac{1}{3} \iiint 2 \rho (x^2 + y^2+z^2) dV\\
+&= \frac{2}{3}\rho \iiint r^2 r^2\text{sin}\theta dr d\theta d\phi \Longleftarrow \text{Can be easier}\\
+&= \frac{2}{3}\rho \int_0^{R} r^4 \int_0^{\pi} \text{sin}\theta\int_0^{2\pi} d\phi d\theta dr\\
+\Aboxed{&\hspace{3pt}=\frac{2}{5}mR^2.}\\
+\end{align*}
+\vspace{-3.5em}
+\end{prf}
 
 
 \end{document}
