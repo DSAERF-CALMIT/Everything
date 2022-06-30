@@ -1,0 +1,621 @@
+\documentclass[12pt]{scrartcl}
+\title{Moment of Inertia}
+\nonstopmode
+\usepackage{graphicx}			% Required for including pictures
+\usepackage[figurename=Figure]{caption}
+\usepackage{float}    				% For tables and other floats
+\usepackage{amsmath}  		% For math
+\usepackage{bbm}  				% For mathBBM
+\usepackage{amssymb}  		% For more math
+\usepackage{fullpage} 			% Set margins and place page numbers at bottom center
+\usepackage{paralist} 			% paragraph spacing
+\usepackage{listings} 			% For source code
+\usepackage{enumitem} 		% useful for itemization
+\usepackage{siunitx}  			% standardization of si units
+\usepackage{tikz,bm} 			% Useful for drawing plots
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{bm}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=1.2pt] (char) {#1};}}
+
+\usepackage{amsthm}
+\usepackage[framemethod=TikZ]{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Proof
+\newcounter{prf}[section]\setcounter{prf}{0}
+\newenvironment{prf}[2][]{%
+\refstepcounter{prf}%
+\ifstrempty{#1}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=red!20]
+{\strut \textit{proof}};}}
+}{}%
+\mdfsetup{innertopmargin=5pt,linecolor=red!25,%
+linewidth=1.5pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+\label{#2}}{\end{mdframed}}
+
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=violet,
+    urlcolor=violet,
+}
+
+
+\setstretch{1.2}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand\footrule{\hrule height1pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lfoot{Moment of Inertia \raisebox{0.5\depth}{\scalebox{0.8}\textcopyright}~Jinwei Zou}
+\rfoot{Page \thepage}
+
+\begin{document}
+
+	\begin{center}
+		\textbf{ \large Moment of Inertia \raisebox{0.5\depth}{\scalebox{0.8}\textcopyright}~BinaryPhi}
+	\end{center}
+	\vspace{-0.3em}
+	\hspace{\fill} \textbf{Last Edit:} \today~PDT \vspace{-0.6em} \\
+	\hrule
+
+\vspace{3em}
+
+%%%%%%%%%%%%%%%%
+{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\large Definitions:}
+}
+\vspace{1em}
+
+	\noindent \textbf{Moment of Inertia}, often denoted by $I$ (SI Unit: $\text{kg}\cdot\text{m}^2$), is a quantitative measurement of the inertia for an object to rotate about a specific axis. It can be calculated by the summation of moment of inertia of every infinitesimal part of the rigid body ($\Longrightarrow$ in other words, a \textbf{mass point}). The moment of inertia of a mass point is:
+	\begin{equation} \label{eq1}
+	I = m \hspace{2pt} r^2,
+	\end{equation}
+
+\noindent where $m$ is the mass of the mass point and $r$ is the distance between this mass point and the rotational axis. By using summation, the moment of inertia of a system can be written as:
+	\begin{equation} \label{eq2}
+	I = \sum_i^{\infty} m_i \hspace{2pt} r_i^2.
+	\end{equation}
+\newline
+\noindent By using integral, the moment of inertia can be written as:
+	\begin{equation} \label{eq3}
+	I = \int r^2 dM.
+	\end{equation}	
+\newline
+\noindent Depending on the circumstances, we can transform \eqref{eq3} to the following:
+	\begin{align} 
+	I &= \iiint \rho r^2 dV; \label{eq4} \\
+	I &= \iint \sigma r^2 dS; \label{eq5} \\
+	I &= \int \lambda r^2 dL. \label{eq6}
+	\end{align}
+\newline
+\noindent In \eqref{eq4} \eqref{eq5} \eqref{eq6}, the convention is $\rho$ denotes the Volume Density, $\sigma$ denotes the Area Density, and $\lambda$ denotes the Linear Density. In addtion, 
+	$$dL = Rd\theta; ~~ dA = rd\theta dr$$
+are also useful in some cases.
+
+%Additionally, we could use a rank-2 tensor: 
+%	$$\begin{pmatrix}
+%	I_{xx} & I_{xy} & I_{xz}\\
+%	I_{yx} & I_{yy} & I_{yz}\\
+%	I_{zx} & I_{zy} & I_{zz}
+%	\end{pmatrix}$$
+\newpage
+
+\hyperlink{N1}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.1:} Infinite Thin Rod $:$ Center }(Mass: \textbf{m}; Lenght: \textbf{l})
+}\\
+
+\hyperlink{N2}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.2:} Infinite Thin Rod $:$ One End }(Mass: \textbf{m}; Lenght: \textbf{l})
+}\\
+
+\hyperlink{N3}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Theorem.1:} Parallel Axis Theorem}
+}\\
+
+\hyperlink{N4}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.3:} Circular Thin Loop $:$ Orthogonal Center} (Mass: \textbf{m}; Radius: \textbf{R})
+}\\
+
+\hyperlink{N5}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.4:} Circular Thin Loop $:$ Diameter} (Mass: \textbf{m}; Radius: \textbf{R})
+}\\
+
+\hyperlink{N6}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Theorem.2:} Perpendicular Axis Theorem}
+}\\
+
+\hyperlink{N7}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.5:} Circular Thin Disk $:$ Orthogonal Center} (Mass: \textbf{m}; Radius: \textbf{R})
+}\\
+
+\hyperlink{N8}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.6:} Solid Cylinder $:$ Orthogonal Center} (Mass: \textbf{m}; Radius: \textbf{R}; Hight: \textbf{H})
+}\\
+
+\hyperlink{N9}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.7:} Circular Thin Disk $:$ Diameter} (Mass: \textbf{m}; Radius: \textbf{R})
+}\\
+
+\hyperlink{N10}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.8:} Solid Cylinder $:$ Transverse Axis \& Center} (Mass: \textbf{m}; Radius: \textbf{R}; Height: \textbf{H})
+}\\
+
+\hyperlink{N11}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.9:} Hollow Cylinder (Thick Tube) $:$ Orthogonal Center}
+}\\
+
+\hyperlink{N12}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.10:} Hollow Cylinder (Thick Tube) $:$ Transverse Axis \& Center}
+}\\
+
+\hyperlink{N13}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.11:} Thin Spherical Shell} (Mass: \textbf{m};  Radius: \textbf{R})
+}\\
+
+\hyperlink{N14}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.12:} Solid Sphere} (Mass: \textbf{m};  Radius: \textbf{R})
+}
+
+\newpage
+%%%%%%%%%%%%%%%%1
+\hypertarget{N1}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.1:} Infinite Thin Rod $:$ Center }(Mass: \textbf{m}; Lenght: \textbf{l}) \label{N1}
+}
+\begin{equation}
+I = \frac{1}{12}ml^2.
+\end{equation}
+\vspace{-2.2em}
+\begin{prf}{prf:proof1}
+\vspace{-2em}
+\addtolength{\jot}{0.4em}
+\begin{align*}
+I &= \int r^2 dM = \int_0^{m} r^2 dM \\
+&= \int r^2 (\lambda dL) = \int_{-l/2}^{l/2} \frac{m}{l} L^2 dL \\
+&= \frac{m}{l} \int_{-l/2}^{l/2} L^2 dL = \frac{m}{l} \cdot \large\left[ \frac{1}{3}L^{3} \large\right]_{-l/2}^{l/2} \\
+&= \frac{m}{l} \left[\frac{1}{3}\left(\frac{l}{2}\right)^{3} - \frac{1}{3}\left(-\frac{l}{2}\right)^{3}\right] \\
+\Aboxed{&\hspace{3pt}= \frac{1}{12}ml^2.~}\\
+\end{align*}
+\vspace{-3em}
+\end{prf}
+
+\vspace{2em}
+%%%%%%%%%%%%%%%%2
+\setlength\leftskip{0pt}\hypertarget{N2}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.2:} Infinite Thin Rod $:$ One End }(Mass: \textbf{m}; Lenght: \textbf{l})
+}
+\begin{equation}
+I = \frac{1}{3}ml^2.
+\end{equation}
+\vspace{-2.2em}
+\begin{prf}{prf:proof2}
+\vspace{-2em}
+\addtolength{\jot}{0.4em}
+\begin{align*}
+I &= \int r^2 dM = \int_0^{m} r^2 dM \\
+&= \int r^2 (\lambda dL) = \int_{0}^{l} \frac{m}{l} L^2 dL \\
+&= \frac{m}{l} \int_{0}^{l} L^2 dL \\
+&= \frac{m}{l} \cdot \large\left[ \frac{1}{3}L^{3} \large\right]_{0}^{l} = \frac{m}{l} \left(\frac{1}{3}l^{3} - 0\right) \\
+\Aboxed{&\hspace{3pt}= \frac{1}{3}ml^2.~}\\
+\end{align*}
+\vspace{-3em}
+\end{prf}
+
+
+%%%%%%%%%%%%%%%%3
+\setlength\leftskip{0pt}\hypertarget{N3}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Theorem.1:} Parallel Axis Theorem}
+}
+
+\vspace{1.5em}
+\noindent The moment of inertia of a rigid body about a rotating axis is: 
+\begin{equation}
+I = I_{cm} + md^2.
+\end{equation}
+$I_{cm}$ is the moment of inertia when rotating about the axis that passes through the center of mass. $d$ is the distance between an arbitrary rotational axis and the axis that passes through the center of mass of the object.
+\begin{prf}{prf:proof3}
+\addtolength{\jot}{0.5em}
+For the sake of simplicity, let's imagine the rigid body rotating about the $z$-axis, which passes through the center of mass of the body. You could use tensor to do a more generalized proof (I will do a tensor version of this whole topic if I have time).
+\begin{align*}
+I_{cm} &= \int r^2 dM\\
+&= \int (x^2+y^2+z^2) dM = \int (x^2+y^2) dM\\
+I &= \int \left((x-d_1)^2+(y-d_2)^2\right) dM\\
+&= \int \left( x^2 + y^2 - 2d_1x - 2d_2y + d_1^2 + d_2^2 \right)dM\\
+\begin{split}
+~\hspace{-4pt}= \int (x^2+y^2) dM + (d_1^2+d_2^2) \int dM& \\
+- ~ 2d_1 \int x dM - 2d_2 \int y dM& \\
+\end{split}
+\\ \because \hspace{3pt}~&~~~\hspace{2pt} \int x dM = \int y dM = 0\\
+\therefore I &= \int (x^2+y^2) dM + d^2 \cdot \int dM\\
+\Aboxed{&\hspace{3pt}= I_{cm} + md^2}\\
+\end{align*}
+\vspace{-3em}
+\end{prf}
+
+\newpage
+%%%%%%%%%%%%%%%%4
+\setlength\leftskip{0pt}\hypertarget{N4}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.3:} Circular Thin Loop $:$ Orthogonal Center} (Mass: \textbf{m}; Radius: \textbf{R})
+}
+\begin{equation}
+I_z = mR^2. \label{eq10}
+\end{equation}
+\vspace{-2.3em}
+\begin{prf}{prf:proof4}
+\vspace{-2em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+I_z &= \int r^2 dM = \int R^2 dM\\
+&= R^2 \int dM = R^2 \cdot m\\
+\Aboxed{&\hspace{3pt}= mR^2}\\
+\end{align*}
+\vspace{-3.5em}
+\end{prf}
+
+\vspace{1.5em}
+%%%%%%%%%%%%%%%%5
+\setlength\leftskip{0pt}\hypertarget{N5}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.4:} Circular Thin Loop $:$ Diameter} (Mass: \textbf{m}; Radius: \textbf{R})
+}
+\begin{equation}
+I_x = I_y = \frac{1}{2}mR^2. \label{eq11}
+\end{equation}
+\vspace{-2.3em}
+\begin{prf}{prf:proof5}
+\vspace{-2em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+I_x  = I_y &= \int r^2 dM\\
+&= \int r^2 (\lambda dL) = \int_0^{2\pi} r^2 \left( \frac{m}{2\pi R} R d\theta\right) \\
+&= \int_0^{2\pi} (R \text{cos}\theta)^2 \left( \frac{m}{2\pi} \right) d\theta\\
+&= R^2\frac{m}{2\pi} \int_0^{2\pi}  \text{cos}^2\theta d\theta\\
+&= R^2\frac{m}{2\pi} \int_0^{2\pi}  \frac{1+\text{cos}2\theta}{2} d\theta\\
+&= R^2\frac{m}{2\pi} \left( \left[ \frac{1}{2} \theta + \frac{1}{4}\text{sin}2\theta \large\right]_0^{2\pi} \right)\\
+&= R^2\frac{m}{2\pi} \left( \pi - 0 + 0 - 0 \right)\\
+\Aboxed{&\hspace{3pt}= \frac{1}{2}mR^2.}\\
+\end{align*}
+\vspace{-3.5em}
+\end{prf}
+
+
+
+%%%%%%%%%%%%%%%%6
+\setlength\leftskip{0pt}\hypertarget{N6}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Theorem.2:} Perpendicular Axis Theorem}
+}
+
+\vspace{1.5em}
+\noindent For a flat, thin, and uniform object, the moment of inertia, $I_z$, about a rotating axis, say $z$-axis, that is orthogonal to the center of mass, is equal to the sum of the moments of inertia of the object about two other rotating axes orthogonal to each other, $I_x, I_y$: 
+\begin{equation}
+I_z = I_x+I_y.
+\end{equation}
+$I_z$ is the moment of inertia when rotating about the $z$-axis, $I_x, I_y$ are the moments of inertia when rotating about the $x$-axis and $y$-axis respectively. Note that the object is flat among the $xy$ surface. We have:
+\begin{equation}
+I_z = 2I_x = 2I_y;~~ I_x = I_y
+\end{equation}
+when the rigid body has rotational symmetry in $xy$ surface.
+\begin{prf}{prf:proof6}
+\vspace{-2em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+I_z &= \int r^2 dM\\
+&= \int (x^2+y^2) dM\\
+&= \int x^2 dM + \int y^2 dM\\
+&= I_y + I_x.\\
+\text{Note that:} &\int x^2 dM = I_y,\\
+\text{and} &\int y^2 dM = I_x.
+\end{align*}
+Since the circular loop is a flat, thin, and uniform rigid body, we have:
+\begin{align*}
+\eqref{eq10}: I_z &= mR^2\\
+\eqref{eq11}: I_x &= I_y = \frac{1}{2} mR^2
+\end{align*}
+which satisfy $$I_z = I_x+I_y.$$
+\vspace{-1em}
+\end{prf}
+
+
+%%%%%%%%%%%%%%%%7
+\setlength\leftskip{0pt}\hypertarget{N7}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.5:} Circular Thin Disk $:$ Orthogonal Center} (Mass: \textbf{m}; Radius: \textbf{R})
+}
+\begin{equation}
+I_z = \frac{1}{2} mR^2.
+\end{equation}
+\vspace{-2.3em}
+\begin{prf}{prf:proof7}
+\vspace{-2em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+I_z &= \int r^2 dM = \iint r^2 (\sigma dA) \\
+&= \int_0^R\int_{-\pi}^{\pi} r^2 \sigma r d\theta dr = \int_0^R \sigma r^3 \left(\int_{-\pi}^{\pi} d\theta\right) dr\\
+&= 2\pi\sigma \int_0^R r^3 dr\\
+&= 2\pi\sigma \left[ \frac{1}{4}r^4 \right]_0^R= 2\pi \frac{m}{\pi R^2} \left(\frac{1}{4}R^4 - 0 \right)\\
+\Aboxed{&\hspace{3pt}= \frac{1}{2}mR^2}\\
+\end{align*}
+\vspace{-3.5em}
+\end{prf}
+
+\vspace{1.5em}
+%%%%%%%%%%%%%%%%8
+\setlength\leftskip{0pt}\hypertarget{N8}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.6:} Solid Cylinder $:$ Orthogonal Center} (Mass: \textbf{m}; Radius: \textbf{R}; Hight: \textbf{H})
+}
+\begin{equation}
+I_z = \frac{1}{2} mR^2.
+\end{equation}
+\vspace{-2.4em}
+\begin{prf}{prf:proof8}
+\vspace{-2.2em}
+\addtolength{\jot}{0.4em}
+\begin{align*}
+I_z &= \int r^2 dM = \iiint r^2 (\rho dV) \\
+&= \iint r^2 \rho dA \int_{0}^{H}dh\\
+&= H \rho \int_0^R r^3 \cdot  \left(\int_{-\pi}^{\pi} d\theta\right)  \cdot dr\\
+&= H \frac{m}{\pi R^2 H} 2\pi \int_0^R r^3 dr\\
+&= \frac{2m}{R^2} \left( \frac{1}{4}R^4 \right)\\
+\Aboxed{&\hspace{3pt}= \frac{1}{2}mR^2}\\
+\end{align*}
+\vspace{-3.5em}
+\end{prf}
+
+
+%%%%%%%%%%%%%%%%9
+\setlength\leftskip{0pt}\hypertarget{N9}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.7:} Circular Thin Disk $:$ Diameter} (Mass: \textbf{m}; Radius: \textbf{R})
+}
+\begin{equation}
+I_x = I_y = \frac{1}{4} mR^2.
+\end{equation}
+\vspace{-2.4em}
+\begin{prf}{prf:proof9}
+\vspace{-2.2em}
+\addtolength{\jot}{0.4em}
+\begin{align*}
+I_x=I_y &= \int r^2 dM\\
+dM&=\sigma dA\\
+&= \sigma r d\theta dr\\
+I_x=I_y &=\int_0^R \int_{0}^{2\pi}(r\text{cos}\theta)^2 (\sigma r d\theta dr)\\
+&=\int_0^R \sigma r^3 \left( \int_0^{2\pi} \text{cos}^2\theta d\theta\right)dr\\
+&=\int_0^R \sigma r^3 \left( \int_0^{2\pi} \frac{1+\text{cos}2\theta}{2} d\theta\right)dr\\
+&=\int_0^R \sigma r^3 \left( \left[ \frac{\theta}{2} + \frac{\text{sin}2\theta}{4}\right]_0^{2\pi} \right)dr\\
+&=\int_0^R \sigma r^3 \pi dr\\
+&= \frac{m}{\pi R^2} \pi \int_0^{R}r^3 dr\\
+&= \frac{m}{R^2} \left[ \frac{1}{4}r^4\right]_0^{R}\\
+&= \frac{m}{R^2} \frac{1}{4}R^4\\
+\Aboxed{&\hspace{3pt}= \frac{1}{4}mR^2}\\
+\end{align*}
+\vspace{-3.5em}
+\end{prf}
+
+\newpage
+%%%%%%%%%%%%%%%%10
+\setlength\leftskip{0pt}\hypertarget{N10}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.8:} Solid Cylinder $:$ Transverse Axis \& Center} (Mass: \textbf{m}; Radius: \textbf{R}; Height: \textbf{H})
+}
+\begin{equation}
+I_x = I_y = \frac{1}{4} mR^2+\frac{1}{12}mH^2.
+\end{equation}
+\vspace{-2.3em}
+\begin{prf}{prf:proof10}
+\vspace{-2em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+I_x=I_y &= \int r^2 dM \coloneqq I\\
+dI &= dI_x = dI_y = r^2 dM\\
+\because I &= I_{cm} + md^2\\
+&= I_{cm} + mx^2\\
+\therefore dI &= d(I_{cm} + mx^2) \\
+&= dI_{cm}+x^2\cdot dM\\
+&= \frac{1}{4} R^2 \cdot dM +x^2\cdot dM\\
+I &= \int \frac{1}{4} R^2 \cdot dM +\int x^2 \cdot dM\\
+&= \int_{-H/2}^{H/2} \frac{1}{4} R^2 \left( \frac{m}{H} dx\right) + \int_{-H/2}^{H/2}x^2 \left( \frac{m}{H} dx\right)\\
+&= \frac{1}{4} R^2 \frac{m}{H} \int_{-H/2}^{H/2} dx + \frac{m}{H}  \int_{-H/2}^{H/2} x^2 dx\\
+&= \frac{1}{4} R^2 \frac{m}{H} \left[ \hspace{1pt}x\hspace{1pt}\vphantom{\frac{1}{2}}\right]_{-H/2}^{H/2} + \frac{m}{H} \left[ \frac{1}{3}x^3\right]_{-H/2}^{H/2}\\
+&= \frac{1}{4} m R^2 + \frac{m}{H} \left( \frac{1}{3}\left( \frac{H}{2}\right)^3 - \frac{1}{3}\left( -\frac{H}{2}\right)^3\right)\\
+&= \frac{1}{4} m R^2 + \frac{m}{H} \left( \frac{1}{12}H^3\right)\\
+&= \frac{1}{4} m R^2+\frac{1}{12}mH^2.\\
+\Aboxed{\therefore I_x = I_y &= \frac{1}{4} mR^2+\frac{1}{12}mH^2.}\\
+\end{align*}
+\vspace{-3.5em}
+\end{prf}
+
+\newpage
+%%%%%%%%%%%%%%%%11
+\setlength\leftskip{0pt}\hypertarget{N11}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.9:} Hollow Cylinder (Thick Tube) $:$ Orthogonal Center}
+	\begin{center}
+~~~~~~~~~~~~~~~~~~~~~~~~(Mass: \textbf{m};  Inner Radius: \boldsymbol{$\textbf{R}_1$}; Outer Radius: \boldsymbol{$\textbf{R}_2$}; Height: \textbf{H})
+	\end{center}
+}
+\begin{equation}
+I_z=\frac{1}{2}m(R_1^2+R_2^2)
+\end{equation}
+\vspace{-1.6em}
+\begin{prf}{prf:proof11}
+\vspace{-2em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+I_z &= \int r^2 dM\\
+&= \iiint r^2 (\rho dV)\\
+&= \iint r^2 \rho dA \int_0^H dh\\
+&= \iint r^2 H \rho (r d\theta dr)\\
+&= \int_{R_1}^{R_2}\int_{-\pi}^{\pi} r^3 H \rho d\theta dr\\
+&= \int_{R_1}^{R_2}  r^3 H \rho \left(\int_{-\pi}^{\pi} d\theta \right)dr\\
+&= \int_{R_1}^{R_2}  r^3 H \rho 2\pi dr\\
+&= 2\pi H \frac{m}{H(\pi R_2^2 - \pi R_1 ^2)}\int_{R_1}^{R_2}  r^3 dr\\
+&= \frac{2m}{R_2^2-R_1^2} \left[\frac{1}{4}r^4\right]_{R_1}^{R_2}\\
+&= \frac{2m}{R_2^2-R_1^2} \left( \frac{1}{4}R_2^4 - \frac{1}{4}R_1^4\right)\\
+&= \frac{m}{2\left(R_2^2-R_1^2\right)} \left(R_2^2 + R_1^2\right)\left(R_2^2 - R_1^2\right)\\
+\Aboxed{&\hspace{3pt}=\frac{1}{2}m(R_1^2+R_2^2)}\\
+\end{align*}
+\vspace{-3.5em}
+\end{prf}
+
+\newpage
+%%%%%%%%%%%%%%%%12
+\setlength\leftskip{0pt}\hypertarget{N12}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.10:} Hollow Cylinder (Thick Tube) $:$ Transverse Axis \& Center}
+	\begin{center}
+~~~~~~~~~~~~~~~~~~~~~~~~(Mass: \textbf{m};  Inner Radius: \boldsymbol{$\textbf{R}_1$}; Outer Radius: \boldsymbol{$\textbf{R}_2$}; Height: \textbf{H})
+	\end{center}
+}
+\begin{equation}
+I_x=I_y = \frac{1}{4}m\left(R_1^2+R_2^2\right)+\frac{1}{12}mH^2.
+\end{equation}
+\vspace{-1.6em}
+\begin{prf}{prf:proof12}
+\vspace{-2em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+I_x=I_y &= \int r^2 dM \coloneqq I\\
+\because I &= I_{cm} + mx^2\\
+\therefore dI &= d(I_{cm} + mx^2)\\
+&= dI_{cm} + x^2 \cdot dM\\
+&= d\left(\frac{1}{2}\left(\frac{1}{2}m(R_1^2+R_2^2)\right)\right) + x^2 \cdot dM\\
+&= \frac{1}{4}(R_1^2+ R_2^2) \cdot dM + x^2 \cdot dM\\
+I &= \int \frac{1}{4}(R_1^2+ R_2^2) \cdot dM + \int x^2 \cdot dM\\
+&= \int_{-H/2}^{H/2} \frac{1}{4}(R_1^2+ R_2^2) \left(\frac{m}{H} dx \right) + \int_{-H/2}^{H/2} x^2 \left(\frac{m}{H} dx \right)\\
+&= \frac{1}{4}(R_1^2+ R_2^2) \frac{m}{H} \int_{-H/2}^{H/2} dx + \frac{m}{H} \int_{-H/2}^{H/2} x^2 dx\\
+&= \frac{1}{4}(R_1^2+ R_2^2) \frac{m}{H} \left[ \hspace{1pt}x\hspace{1pt}\vphantom{\frac{1}{2}}\right]_{-H/2}^{H/2}  + \frac{m}{H} \left[ \frac{1}{3}x^3\right]_{-H/2}^{H/2}\\
+&= \frac{1}{4}m(R_1^2+ R_2^2) + \frac{m}{H} \left( \frac{1}{3}\left( \frac{H}{2}\right)^3 - \frac{1}{3}\left( -\frac{H}{2}\right)^3\right)\\
+&= \frac{1}{4}m(R_1^2+ R_2^2) + \frac{m}{H} \left( \frac{1}{12}H^3\right)\\
+&= \frac{1}{4}m\left(R_1^2+R_2^2\right)+\frac{1}{12}mH^2\\
+\Aboxed{\therefore I_x=I_y &= \frac{1}{4}m\left(R_1^2+R_2^2\right)+\frac{1}{12}mH^2.}\\
+\end{align*}
+\vspace{-3em}
+\end{prf}
+
+
+\newpage
+%%%%%%%%%%%%%%%%13
+\setlength\leftskip{0pt}\hypertarget{N13}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.11:} Thin Spherical Shell} (Mass: \textbf{m};  Radius: \textbf{R})
+}
+\begin{equation}
+I =\frac{2}{3}mR^2.
+\end{equation}
+\vspace{-2.3em}
+\begin{prf}{prf:proof13}
+\vspace{-2em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+I &= \int r^2 dM\\
+&= \iint r^2 \sigma \cdot dA\\
+&= \iint r^2 \sigma r d\theta dr\\
+&= \iint r^2 \sigma r d\theta R d\phi\\
+&= \int_{0}^{2\pi} r^3 \sigma R \int_0^{2\pi}d\theta d\phi\\
+&= 2\pi \sigma R \int_{0}^{2\pi} R^3\text{sin}^3\phi d\phi\\
+&= 2\pi \sigma R^4 \int_{0}^{2\pi} \text{sin}\phi \text{sin}^2\phi d\phi\\
+&= 2\pi \sigma R^4 \int_{0}^{2\pi} \text{sin}\phi (1- \text{cos}^2\phi )d\phi\\
+&= 2\pi \sigma R^4 \left(\int_{0}^{2\pi} \text{sin}\phi d\phi - \int_{0}^{2\pi} \text{sin}\phi\text{cos}^2\phi d\phi\right)\\
+&= 2\pi \sigma R^4 \left(\int_{0}^{2\pi} \text{sin}\phi d\phi + \int_{1}^{-1} \text{cos}^2\phi d(\text{cos}\phi)\right)\\
+&= 2\pi \sigma R^4 \left(\int_{0}^{2\pi} \text{sin}\phi d\phi + \int_{1}^{-1} u^2 du\right)\\
+&= 2\pi \frac{m}{4\pi R^2} R^4 \left(2 + \frac{-2}{3}\right)\\
+&= \frac{m}{2} R^2\cdot\frac{4}{3}\\
+\Aboxed{&\hspace{3pt}=\frac{2}{3}mR^2.}\\
+\end{align*}
+\vspace{-3.5em}
+\end{prf}
+
+\newpage
+%%%%%%%%%%%%%%%%14
+\setlength\leftskip{0pt}\hypertarget{N14}{\fontfamily{lmss}\selectfont
+	\noindent \textbf{\textcolor{red}{Eq.12:} Solid Sphere} (Mass: \textbf{m};  Radius: \textbf{R})
+}
+\begin{equation}
+I =\frac{2}{5}mR^2.
+\end{equation}
+\vspace{-2.3em}
+\begin{prf}{prf:proof14}
+\text{(Spherical Shell)}
+\vspace{-2.2em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+I &= \int dI = \int \left(\frac{2}{3}r^2 dM\right) \\
+&= \int \frac{2}{3}r^2 \rho 4\pi r^2 dr = \int_0^R \frac{2}{3} 4 \pi \rho r^4 dr\\ 
+&= \frac{2}{3} 4 \pi \rho \int_0^R r^4 dr\\
+\circled{1} &= \frac{8\pi}{3}\frac{m}{\frac{4}{3}\pi R^3} \left[ \frac{1}{5}r^5 \right]_0^R = \frac{2m}{R^3}\frac{1}{5}R^5\\
+\Aboxed{&\hspace{3pt}=\frac{2}{5}mR^2.}\\
+\circled{2} &= \frac{2}{3} 4 \pi \rho \left[ \frac{1}{5}r^5 \right]_0^R = 2 \left(\rho \frac{4}{3} \pi R^3\right) \frac{1}{5}R^2\\
+\Aboxed{&\hspace{3pt}=\frac{2}{5}mR^2.}\\
+\end{align*}
+\vspace{-3.5em}
+\end{prf}
+
+\begin{prf}{prf:proof15}
+\text{(Thin Disk)}
+\vspace{-2.2em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+~~~~~~~~~~I &= \int dI = \int \left(\frac{1}{2}r^2 dM\right) \\
+&= \int \frac{1}{2}r^2 \rho \pi r^2 dh = \int \frac{1}{2} \pi \rho r^4 dh\\
+&= \int_{-R}^R \frac{1}{2} \pi \rho (R^2-h^2)^2 dh\\
+&= \frac{1}{2} \pi \rho \int_{-R}^R (R^4-R^2h^2+h^4) dh = \frac{1}{2} \pi \rho \left(\frac{16}{15}R^5\right)\\
+\Aboxed{&\hspace{3pt}=\frac{2}{5}mR^2.}\\
+\end{align*}
+\vspace{-3.5em}
+\end{prf}
+
+\begin{prf}{prf:proof16}
+\text{(Parallel Axis Theorem)}
+\vspace{-0.8em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+~~~~~~~~~~~dI &= dI_{cm} + x^2 dM = \frac{1}{4} r^2 dM + x^2 dM\\
+dM &= \rho dV = \rho \pi r^2 dx = \rho \pi (R^2-x^2) dx\\
+I &= \int dI = \int \left(\frac{1}{4} r^2 + x^2 \right)dM\\
+&= \int_{-R}^R \left(\frac{1}{4} (R^2-x^2) + x^2 \right) \rho \pi (R^2-x^2) dx\\
+&= \rho \pi \int_{-R}^R \left(\frac{1}{4} R^4 + \frac{1}{2}  R^2x^2-\frac{3}{4} x^4 \right) dx = \frac{8}{15}\rho \pi R^5\\
+\Aboxed{&\hspace{3pt}=\frac{2}{5}mR^2.}\\
+\end{align*}
+\vspace{-3.5em}
+\end{prf}
+
+\begin{prf}{prf:proof17}
+\text{(Interesting Method)}
+\vspace{-0.8em}
+\addtolength{\jot}{0.5em}
+\begin{align*}
+~~~~~~~~I &\coloneqq I_x = I_y = I_z \\
+&= \frac{1}{3}(I_x+I_y+I_z)\\
+\begin{split}
+~\hspace{-4pt}=\frac{1}{3} \iiint \rho (y^2+z^2) dV + \frac{1}{3}\iiint \rho (x^2+z^2) dV& \\
++ \frac{1}{3}\iiint \rho (x^2+y^2) dV& \\
+\end{split}
+\\&= \frac{1}{3} \iiint 2 \rho (x^2 + y^2+z^2) dV\\
+&= \frac{2}{3}\rho \iiint r^2 r^2\text{sin}\theta dr d\theta d\phi \Longleftarrow \text{Can be easier}\\
+&= \frac{2}{3}\rho \int_0^{R} r^4 \int_0^{\pi} \text{sin}\theta\int_0^{2\pi} d\phi d\theta dr\\
+\Aboxed{&\hspace{3pt}=\frac{2}{5}mR^2.}\\
+\end{align*}
+\vspace{-3.5em}
+\end{prf}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
