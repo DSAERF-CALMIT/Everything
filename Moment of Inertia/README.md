@@ -1,4 +1,5 @@
 # [PDF@GitHub](https://github.com/DSAERF-CALMIT/Everything/blob/main/Moment%20of%20Inertia/MomentOfInertia.pdf)
+# [PDF@BinaryPhi.site](https://binaryphi.site/~AliothZou/Everything/MomentOfInertia.pdf)
 # [TeX@GitHub](https://raw.githubusercontent.com/DSAERF-CALMIT/Everything/main/Moment%20of%20Inertia/MoI.tex)
 
 
