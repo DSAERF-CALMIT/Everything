@@ -1,0 +1,73 @@
+%This template is based on one provided by the American Physical Society for submission to its journals.
+
+\documentclass[aps,onecolumn,superscriptaddress,preprintnumbers]{revtex4-2}
+
+%The following packages add LaTeX commands that make formatting and writing math easier
+
+\usepackage{graphicx}  % Include figure files
+\usepackage{subfigure}
+\usepackage{multirow}
+\usepackage{tikz-feynman}
+\usepackage{hyperref}
+    
+\linespread{1.1}
+\usepackage{fancyhdr}
+\usepackage{longtable}
+\usepackage{parskip}
+\usepackage[T1]{fontenc}
+\usepackage{dcolumn}   % Align table columns on decimal point
+
+\usepackage{bm}        % bold math
+\usepackage{amsfonts}  % Common math fonts
+\usepackage{amsmath}   % Common math functions
+\usepackage{amssymb}   % Common math symbols
+
+\setlength{\parindent}{0pt}
+\newenvironment{rcases}
+{\left.\begin{aligned}}
+{\end{aligned}\right\rbrace}
+  
+\newcommand{\qed}{\tag*{$\square$}}
+
+\begin{document}
+
+
+Integer partitioning function $p(n)$ can be represented as the generating function of the sequence of $p(n)$:
+\begin{equation}
+\sum_{n=0}^{\infty}p(n)x^n = \prod_{k=1}^{\infty}\frac{1}{1-x^k}.
+\end{equation}
+
+The generating function of odd partition, denoted by $p_o(n)$, can be derived as following:
+\begin{align*}
+\prod_{k=1}^{\infty}\frac{1}{1-x^k} &= \cfrac{1}{1-x} \cdot \cfrac{1}{1-x^2} \cdot \cdots \cdot \cfrac{1}{1-x^m} \cdot \cdots\\
+&= \prod_{k=1}^{\infty}(x^0+x^k+x^{2k}+\cdots)\\
+&= (1+x+x^2+\cdots )\\
+&\hspace{13pt}(1+x^2+x^4+\cdots )\\
+&\hspace{13pt}\cdots\\
+&\hspace{13pt}(1+x^m+x^{2m}+\cdots )\\
+&\hspace{13pt}\cdots
+\end{align*}
+The correspondence can be represented by using a simple example of $p(5)$.
+\begin{alignat*}{3}
+5&=1+1+1+1+1&&~\Longrightarrow~ (x^1)^5 \text{~from~} \frac{1}{1-x}\\
+&=2+1+1+1&&~\Longrightarrow~ (x^2)^1 \text{~from~} \frac{1}{1-x^2}; ~&&(x^1)^3 \text{~from~} \frac{1}{1-x}\\
+&=2+2+1&&~\Longrightarrow~ (x^2)^2 \text{~from~} \frac{1}{1-x^2}; &&(x^1)^1 \text{~from~} \frac{1}{1-x}\\
+&=3+1+1&&~\Longrightarrow~ (x^3)^1 \text{~from~} \frac{1}{1-x^3}; &&(x^1)^2 \text{~from~} \frac{1}{1-x}\\
+&=3+2&&~\Longrightarrow~ (x^3)^1 \text{~from~} \frac{1}{1-x^3}; &&(x^2)^1\text{~from~} \frac{1}{1-x^2}\\
+&=4+1&&~\Longrightarrow~ (x^4)^1 \text{~from~} \frac{1}{1-x^4}; &&(x^1)^1 \text{~from~} \frac{1}{1-x}\\
+&=5 &&~\Longrightarrow~ (x^5)^1 \text{~from~} \frac{1}{1-x^5}.
+\end{alignat*}
+To express the partition function of the odd partition, we need to eliminate partitions that have even numbers in it, which means we won't count it into the odd partition if $a$ in $(x^a)^b$ is even. Therefore, the generating function of the odd partition is
+\begin{align}
+\sum_{n=0}^{\infty}p_o(n)x^n &= \cfrac{1}{1-x}\cdot\cfrac{1}{1-x^3}\cdot\cfrac{1}{1-x^5}\cdot\cdots\notag\\
+&=\prod_{k=0}^{\infty}\frac{1}{1-x^{2n+1}}.
+\end{align}
+Similarly, we won't count another to the distinct partition if $b$ in $(x^a)^b$ is larger than $1$. Therefore, the expansions will only have their first two terms, and the generating function of the distinct partition is 
+\begin{align}
+\sum_{n=0}^{\infty}p_d(n)x^n &= (1+x+0)\cdot(1+x^2+0)\cdot\cdots\notag\\
+&=\cfrac{1-x^2}{1-x}\cdot\cfrac{1-x^4}{1-x^2}\cdot\cfrac{1-x^6}{1-x^3}\cdot\cfrac{1-x^8}{1-x^4}\cdot\cdots\\
+&=\cfrac{1}{1-x}\cdot\cfrac{1}{1-x^3}\cdot\cfrac{1}{1-x^5}\cdot\cdots.\notag
+\end{align}
+Therefore, it is proved that since the generating functions are the same, $p_o(n)=p_d(n)$.
+
+\end{document}
