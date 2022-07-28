@@ -1,6 +1,6 @@
-# [PDF@GitHub](https://github.com/DSAERF-CALMIT/Everything/blob/main/RZ-EP/RZ-EP.pdf)
+# [PDF@GitHub](https://github.com/DSAERF-CALMIT/Everything/blob/main/RZ=EP/RZ=EP.pdf)
 
-# [Tex@GitHub](https://github.com/DSAERF-CALMIT/Everything/blob/main/RZ-EP/RZ-EP.tex)
+# [Tex@GitHub](https://github.com/DSAERF-CALMIT/Everything/blob/main/RZ=EP/RZ=EP.tex)
 
 # This folder is related to INTEGER PARTITION.
 
